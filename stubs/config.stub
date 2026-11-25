@@ -1,0 +1,11 @@
+{{{
+  exports({ to: app.configPath('scheduler.ts') })
+}}}
+import { defineConfig } from '@ifullgaz/adonis-scheduler'
+
+export default defineConfig({
+  cacheKey: 'scheduler:cache',
+  lockKey: 'scheduler:lock',
+  lockTtl: 10,
+  versionKey: 'scheduler:version',
+})

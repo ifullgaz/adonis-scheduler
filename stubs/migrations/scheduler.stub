@@ -1,0 +1,27 @@
+{{{
+  exports({
+    to: app.makePath(folder, fileName)
+  })
+}}}
+import { BaseSchema } from '@adonisjs/lucid/schema'
+
+export default class extends BaseSchema {
+  protected tableName = 'schedules'
+
+  async up() {
+    this.schema.createTable(this.tableName, (table) => {
+      table.bigIncrements('id').notNullable()
+      table.string('cron_expression', 128).notNullable()
+      table.string('tz').notNullable().defaultTo('Asia/Jerusalem')
+      table.string('job_name', 128).notNullable()
+      table.json('job_params').notNullable()
+      table.tinyint('status').notNullable().defaultTo(0)
+      table.timestamp('created_at')
+      table.timestamp('updated_at')
+    })
+  }
+
+  async down() {
+    this.schema.dropTable(this.tableName)
+  }
+}
