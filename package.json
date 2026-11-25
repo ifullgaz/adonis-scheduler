@@ -1,7 +1,7 @@
 {
   "name": "@ifullgaz/adonis-scheduler",
   "description": "Adonis Scheduler is a package that provides a simple way to schedule jobs.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "engines": {
     "node": ">=24.0.0"
   },
